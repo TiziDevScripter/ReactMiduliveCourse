@@ -1,0 +1,42 @@
+.follow-card{
+    display: flex;
+    justify-content: space-between;
+    /* width: 100%;
+    max-width: 100%; */
+    margin: 1em;
+    gap: .5em;
+    font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+}
+.follow-card__header{
+}
+.follow-card__header img{
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    display: block;
+}
+.follow-card__section{
+    display: flex;
+}
+.follow-card__section{
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+.follow-card__section strong{
+    color: #fff;
+}
+.follow-card__section span{
+    color: #aaa;
+}
+.follow-card__section strong,
+.follow-card__section span{
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    max-width: 155px;
+}
+.follow-card__aside{
+    display: flex;
+    align-items: center;
+}
