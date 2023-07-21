@@ -1,0 +1,122 @@
+:root{
+  --primary-color: #35a;
+  --primary-color2: #24a;
+}
+.tictactoe{
+  width: 100%;
+  min-height: 100vh;
+  display: grid;
+  place-content: center;
+  gap: 2em;
+}
+.tictactoe__title{
+  font-size: 2.5em;
+  text-align: center;
+  margin-bottom: 0;
+}
+.tictactoe__game{
+  display: grid;
+  grid-template-columns: repeat(3,1fr);
+}
+.square{
+  background-color: transparent;
+  border: 1px solid #fff;
+  width: 83px;
+  height: 83px;
+  font-size: 4em;
+  line-height: 60px;
+  text-align: center;
+  cursor: pointer;
+  --corner-border-radius: 20px;
+  transition: background-color .3s ease-in-out;
+}
+.tictactoe__game .square:hover{
+  background-color: var(--primary-color);
+}
+.square:first-child{
+  border-radius: var(--corner-border-radius) 0 0 0;
+}
+.square:nth-child(3){
+  border-radius: 0 var(--corner-border-radius) 0 0;
+}
+.square:nth-child(7){
+  border-radius: 0 0 0 var(--corner-border-radius);
+}
+.square:last-child{
+  border-radius: 0 0 var(--corner-border-radius) 0;
+}
+.square--selected{
+  background-color: var(--primary-color);
+}
+.tictactoe__turn{
+  display: flex;
+  justify-content: space-around;
+}
+
+
+.tictactoe__winner{
+  width: 100%;
+  min-height: 100vh;
+  background-color: #0007;
+  position: absolute;
+  top: 0;
+  left: 0;
+  display: grid;
+  grid-template-columns: 1fr 300px 1fr;
+  grid-template-rows: 1fr 368px 1fr;
+}
+.winner__modal{
+  background-color: var(--primary-color);
+  grid-row: 2 / 3;
+  grid-column: 2 / 3;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+  align-items: center;
+  transform: scale(0);
+  animation: scaleUp .7s ease-in-out .3s both;
+  border-radius: 15px;
+}
+.winner__modal--down{
+  animation: scaleDown .7s ease-in-out .3s both
+}
+.tictactoe__turn .square{
+  width: 70px;
+  height: 70px;
+  font-size: 3em;
+  line-height: 60px;
+}
+.tictactoe__turn .square,
+.winner__modal .square{
+  /* pointer-events: none; */
+  cursor: default;
+  border-radius: 50%;
+}
+.winner__title{
+  margin: 0;
+  font-size: 2em;
+}
+.winner__button,
+.tictactoe__button-reset{
+  background-color: transparent;
+  border: 1px solid #eee;
+  color: #fff;
+  padding: .5em 2em;
+  transition: 
+  background-color .2s,
+  border 1s;
+  font-size: 1.5em;
+  border-radius: 15px;
+}
+.winner__button:hover,
+.tictactoe__button-reset:hover{
+  background-color: var(--primary-color2);
+  border: 1px dashed #fff;
+}
+
+@keyframes scaleUp {
+  to{transform: scale(1);}
+}
+@keyframes scaleDown {
+  to{transform: scale(0);}
+}
