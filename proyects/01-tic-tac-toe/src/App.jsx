@@ -1,36 +1,12 @@
 import { useState } from 'react';
-import reactLogo from './assets/react.svg'
-import viteLogo from '/vite.svg'
-import './App.css'
+import './App.css';
 
-const TURNS = {
-  X: 'x',
-  O: 'o'
-}
-const Square = function({children,updateBoard,index,isSelected}) {
-  const className = `square ${isSelected ? 'square--selected' : ''}`
-  const handleClick = function() {
-    updateBoard(index)
-  }
-  return (
-    <div 
-    className={className}
-    onClick={handleClick}
-    >
-      {children}
-    </div>
-  )
-}
-const WINNER_POSITIONS = [
-  [0, 1, 2],
-  [3, 4, 5],
-  [6, 7, 8],
-  [0, 3, 6],
-  [1, 4, 7],
-  [2, 5, 8],
-  [0, 4, 8],
-  [2, 4, 6]
-]
+import { Square } from './components/Square';
+import { WinnerModal } from './components/WinnerModal';
+
+import { TURNS } from './constants';
+import { checkWinner } from './logic';
+
 function App() {
   const [board, setBoard] = useState(Array(9).fill(null))
   const [turn, setTurn] = useState(TURNS.X)
@@ -51,19 +27,7 @@ function App() {
       setWinner(newWinner);
     }
   }
-  const checkWinner = function(boardToCheck) {
-    for(const position of WINNER_POSITIONS) {
-      const [a, b, c] = position; //valor de la posicion
-      if(
-        boardToCheck[a] &&
-        boardToCheck[a] === boardToCheck[b] &&
-        boardToCheck[a] === boardToCheck[c]
-      ) {
-        return boardToCheck[a];
-      }
-    }
-    return null;
-  }
+
   const gameReset = function() {
     setBoard(Array(9).fill(null));
     setTurn(TURNS.X);
@@ -104,7 +68,11 @@ function App() {
           </Square>
         </section>
 
-        {
+        <WinnerModal
+        winner={winner} 
+        gameReset={gameReset}
+        ></WinnerModal>
+        {/* {
           winner && (
             <section className="tictactoe__winner">
               <div className="winner__modal">
@@ -121,7 +89,7 @@ function App() {
               </div>
             </section>
           )
-        }
+        } */}
         
       </main>
     </>

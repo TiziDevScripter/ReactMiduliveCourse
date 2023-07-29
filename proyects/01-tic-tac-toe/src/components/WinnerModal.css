@@ -1,0 +1,57 @@
+.tictactoe__winner{
+    width: 100%;
+    min-height: 100vh;
+    background-color: #0007;
+    position: absolute;
+    top: 0;
+    left: 0;
+    display: grid;
+    grid-template-columns: 1fr 300px 1fr;
+    grid-template-rows: 1fr 368px 1fr;
+}
+.winner__modal{
+    background-color: var(--primary-color);
+    grid-row: 2 / 3;
+    grid-column: 2 / 3;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    align-items: center;
+    transform: scale(0);
+    animation: scaleUp .5s ease-in-out both;
+    border-radius: 15px;
+    user-select: none;
+}
+.winner__modal .square{
+    /* pointer-events: none; */
+    cursor: default;
+    border-radius: 50%;
+    line-height: 70px;
+}
+.winner__title{
+    margin: 0;
+    font-size: 2em;
+}
+.winner__button{
+    background-color: transparent;
+    border: 1px solid #eee;
+    color: #fff;
+    padding: .5em 2em;
+    transition: 
+    background-color .2s,
+    border 1s;
+    font-size: 1.5em;
+    border-radius: 15px;
+    user-select: none;
+}
+.winner__button:hover{
+    background-color: var(--primary-color2);
+    border: 1px dashed #fff;
+}
+
+@keyframes scaleUp {
+    to{transform: scale(1);}
+}
+@keyframes scaleDown {
+    to{transform: scale(0);}
+}

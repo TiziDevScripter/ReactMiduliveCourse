@@ -18,39 +18,22 @@
   display: grid;
   grid-template-columns: repeat(3,1fr);
 }
-.square{
-  background-color: transparent;
-  border: 1px solid #fff;
-  width: 83px;
-  height: 83px;
-  font-size: 4em;
-  line-height: 60px;
-  text-align: center;
-  cursor: pointer;
-  --corner-border-radius: 20px;
-  transition: background-color .3s ease-in-out;
-}
-.tictactoe__game .square:hover{
-  background-color: var(--primary-color);
-}
-.square:first-child{
+.tictactoe__game .square:first-child{
   border-radius: var(--corner-border-radius) 0 0 0;
 }
-.square:nth-child(3){
+.tictactoe__game .square:nth-child(3){
   border-radius: 0 var(--corner-border-radius) 0 0;
 }
-.square:nth-child(7){
+.tictactoe__game .square:nth-child(7){
   border-radius: 0 0 0 var(--corner-border-radius);
 }
-.square:last-child{
+.tictactoe__game .square:last-child{
   border-radius: 0 0 var(--corner-border-radius) 0;
-}
-.square--selected{
-  background-color: var(--primary-color);
 }
 .tictactoe__turn{
   display: flex;
   justify-content: space-around;
+  user-select: none;
 }
 
 
@@ -74,8 +57,9 @@
   justify-content: space-around;
   align-items: center;
   transform: scale(0);
-  animation: scaleUp .7s ease-in-out .3s both;
+  animation: scaleUp .5s ease-in-out both;
   border-radius: 15px;
+  user-select: none;
 }
 .winner__modal--down{
   animation: scaleDown .7s ease-in-out .3s both
@@ -92,6 +76,9 @@
   cursor: default;
   border-radius: 50%;
 }
+.winner__modal .square{
+  line-height: 70px;
+}
 .winner__title{
   margin: 0;
   font-size: 2em;
@@ -107,6 +94,7 @@
   border 1s;
   font-size: 1.5em;
   border-radius: 15px;
+  user-select: none;
 }
 .winner__button:hover,
 .tictactoe__button-reset:hover{

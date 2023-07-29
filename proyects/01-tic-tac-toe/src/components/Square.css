@@ -1,0 +1,19 @@
+.square{
+    background-color: transparent;
+    border: 1px solid #fff;
+    width: 83px;
+    height: 83px;
+    font-size: 4em;
+    line-height: 60px;
+    text-align: center;
+    cursor: pointer;
+    --corner-border-radius: 20px;
+    transition: background-color .3s ease-in-out;
+    user-select: none;
+}
+.tictactoe__game .square:hover{
+    background-color: var(--primary-color);
+}
+.square--selected{
+    background-color: var(--primary-color);
+}
