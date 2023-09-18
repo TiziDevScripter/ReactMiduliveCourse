@@ -2,8 +2,8 @@
 import withResults from './mocks/with-results.json'
 import { Products } from './components/Products';
 import { Filters } from './components/Filters';
-import { Footer } from './components/Footer';
-import { IS_DEVELOPMENT } from './config';
+// import { Footer } from './components/Footer';
+// import { IS_DEVELOPMENT } from './config';
 import './App.css'
 
 import { useFilterConfig } from './hooks/useFilterConfig';

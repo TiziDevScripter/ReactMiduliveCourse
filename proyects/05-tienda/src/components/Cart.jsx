@@ -6,7 +6,13 @@ import { useCart } from "../hooks/useCart"
 export function Cart() {
     const checkboxId = useId()
 
-    const {cart} = useCart()
+    const {
+        cart, 
+        addToCart, 
+        removeFromCart, 
+        takeOutOneFromCart 
+    }  = useCart();
+    
     return (
         <section className="cart">
             <label className="cart-logo" htmlFor={checkboxId} >
@@ -18,21 +24,23 @@ export function Cart() {
             <ul className="products">
                 {
                 cart.length > 0 
-                ?   cart.map(product => (
+                ?   cart.map(product => {
+                    return (
                         <li className="product" key={product.id}>
                             <img src={product.thumbnail} alt={product.title} />
                             <div className="title-price">
                                 <h3>{product.title}</h3>
-                                <h3>${product.price}</h3>
+                                <h3>${product.price * product.quantity}</h3>
                             </div>
                             <div className="quantity">
                                 Qty: {product.quantity}
-                                <button>-</button>
-                                <button>+</button>
+                                <button onClick={() => takeOutOneFromCart(product)}>-</button>
+                                <button onClick={() => addToCart(product)}>+</button>
                             </div>
-                            <button className="button-remove">Remove From Cart</button>
+                            <button className="button-remove" 
+                            onClick={() => removeFromCart(product)} >Remove From Cart</button>
                         </li>
-                    ))
+                    )})
                 : <span>No Products</span>
                 }
                 {/* <li className="product">

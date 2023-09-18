@@ -10,11 +10,15 @@
     margin: 0;
 }
 .cart .cart-logo img{
-    background-color: cyan;
+    background-color: #0ff;
     width: 30px;
     padding: .5em;
     border-radius: 50%;
     display: block;
+    transition: background-color .2s ease-in-out;
+}
+.cart .cart-logo img:hover{
+    background-color: #0dd;
 }
 .cart .products{
     position: fixed;
