@@ -1,0 +1,27 @@
+.filters{
+    width: 100%;
+    display: flex;
+    flex-wrap: wrap;
+    /* gap: 7em; */
+}
+.filter{
+    margin-right: 5em;
+}
+.filter:last-child{
+    margin-right: 0;
+}
+.filter label{
+    display: block;
+}
+.filter .input-price{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 1em;
+}
+.filter .input-price input[type="range"]{
+    display: inline-block;
+}
+.filter .input-price span{
+    font-weight: 600;
+}

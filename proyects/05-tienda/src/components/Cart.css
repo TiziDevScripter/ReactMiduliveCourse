@@ -1,0 +1,69 @@
+.cart{}
+.cart input[type="checkbox"]{
+    display: none;
+}
+.cart input[type="checkbox"]:checked ~ .products{
+    transform: translateX(-106%);
+}
+.cart-logo{
+    z-index: 1000;
+    margin: 0;
+}
+.cart .cart-logo img{
+    background-color: cyan;
+    width: 30px;
+    padding: .5em;
+    border-radius: 50%;
+    display: block;
+}
+.cart .products{
+    position: fixed;
+    z-index: 100;
+    width: 300px;
+    max-height: 500px;
+    overflow-y: scroll;
+    top: 75px;
+    right: -350px;
+    transition: .3s transform;
+    background-color: #222;
+    padding: 1em;
+    border-radius: 7px;
+}
+.cart .product{
+    /* background-color: aquamarine; */
+    border: 1px dashed #555;
+}
+.cart .product img{
+    border-radius: 10px;
+}
+.cart .product .title-price{
+    display: flex;
+    justify-content: space-between;
+}
+.cart .product h3{
+    display: inline-block;
+    margin: 12px 0;
+    max-width: 180px;
+    overflow: hidden;
+    white-space: nowrap;
+    text-overflow: ellipsis;
+}
+.cart .product h3:last-child{
+    max-width: 100px;
+}
+.cart .product .button-remove{
+    display: inline-block;
+    width: 100%;
+    margin: 0;
+}
+.cart .quantity{
+    margin-bottom: 12px;
+}
+.cart .quantity button{
+    width: 30px;
+    height: 30px;
+    padding: 0;
+}
+.cart .quantity button:first-child{
+    margin: 0 .3em;
+}

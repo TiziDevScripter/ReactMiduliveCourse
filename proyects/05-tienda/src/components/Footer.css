@@ -1,0 +1,8 @@
+footer{
+    position: fixed;
+    bottom: 2em;
+    left: 1em;
+    background-color: #000c;
+    padding: 0 1em;
+    max-width: 95vw;
+}
